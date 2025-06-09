@@ -1,0 +1,440 @@
+::selection {
+    color: #222;
+    background: #f4b400;
+}
+
+h1,
+h2,
+h3{
+    padding: 0 0 0 0;
+    margin: 0 0 .5em 0;
+}
+
+p{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol{
+    list-style: none;
+}
+
+.bold{
+    font-weight: bold;
+    margin: .5em 0 .5em 0;
+}
+
+.fs-large-xx{
+    font-size: xx-large;
+}
+
+.fs-large-x{
+    font-size: x-large;
+}
+
+.fs-medium{
+    font-size: medium;
+}
+
+/* Fullpage layout */
+.Fullpage {
+    padding: 0;
+    margin: 0;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins, sans-serif;
+}
+
+.Header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: right;
+}
+
+.Menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #222;
+    padding: 1em;
+    color: white;
+}
+
+.Logo {
+    font-size: 24px;
+}
+
+.Menu-buttons {
+    display: flex;
+}
+
+.Buttons {
+    cursor: pointer;
+    color: #f4b400;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    font-size: 1em;
+    border: none;
+    text-align: center;
+    width: auto;
+}
+
+.Dropdown-btn {
+    background-color: #f4b400;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Dropdown-btn:hover {
+    background-color: #45a049;
+}
+
+.Dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.Dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.Dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.Buttons:hover .Dropdown-content {
+    display: block;
+}
+
+.Buttons.active .Dropdown-content {
+    display: block;
+}
+
+.Buttons:hover {
+    /*background-color: #e68900;*/
+    color: white;
+}
+
+.special{
+    background-color: #f4b400;
+    color: #222;
+}
+
+.special:hover{
+    color: #222;
+    background-color: #e68900;
+}
+
+.inactive{
+    cursor: default;
+    color: #515151;
+}
+
+.inactive:hover{
+    cursor: default;
+    color: #515151;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3em;
+    margin: auto;
+    padding: 3em 0;
+
+    --max-width: 100vw - 30%;
+    --padding: 1rem;
+
+    width: min(var(--max-width), 100% - var(--padding) * 2);
+    margin-inline: auto;
+}
+
+.container-img img{
+    width: 600px;
+}
+
+.banner{
+    background-color: #222222;
+    color: white;
+    text-align: center;
+}
+
+.banner .container div img{
+    width: 12em;
+}
+
+.Photos {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.Opinion-set {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.gwaration-box {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #222;
+    color: white;
+    padding: 1.8em 1em;
+    text-align: center;
+    border-bottom: .1em solid #515151;
+}
+
+.footer-widget{
+    text-align: left;
+}
+
+.underfooter {
+    background-color: #222;
+    color: white;
+    padding: 3em;
+    text-align: center;
+    font-size: 12px;
+}
+
+.newsletter-input-field{
+    padding: 1.3em;
+    border-radius: .5em;
+    border: none;
+    margin-right: 1em;
+}
+
+/* ---------------- */
+
+.flow > * + *{
+    margin-top: .8em;
+}
+
+.flow-small > * + *{
+    margin-top: .3em;
+}
+
+.two-text-columns{
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    gap: 5em;
+}
+
+.two-text-columns div{
+    width: 50%;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-section {
+    position: relative;
+    display: inline-block;
+}
+
+.account-button {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f4b400;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    border: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: 0;
+    background-color: white;
+    color: black;
+    border: 0;
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 10;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f4f4f4;
+}
+
+/* ---------------------------- Course.js ---------------------------- */
+
+.course-title{
+    background-color: #f4b400;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1em;
+    /*margin: auto;*/
+
+    /*--max-width: 100vw - 30%;*/
+    /*--padding: 1rem;*/
+
+    /*width: min(var(--max-width), 100% - var(--padding) * 2);*/
+    /*margin-inline: auto;*/
+}
+
+.arrow-button{
+    padding: .5em 0;
+    margin: 0 0 0 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.arrow-button img{
+    width: 2.2em;
+}
+
+.video-player{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 2em;
+}
+
+video{
+    width: 70%;
+    height: auto;
+}
+
+.side-nav {
+    background-color: #222;
+    color: white;
+    padding: 1em;
+    overflow-y: auto;
+    max-height: 30em;
+}
+
+.side-nav h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+.side-nav a {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: .5em 1.5em;
+    font-size: 1em;
+}
+
+.side-nav a:hover {
+    background-color: #575757;
+}
+
+/* Pasek Przewijania */
+.side-nav::-webkit-scrollbar {
+    width: 8px;
+}
+
+.side-nav::-webkit-scrollbar-track {
+    background: #555;
+}
+
+.side-nav::-webkit-scrollbar-thumb {
+    background: #f4b400;
+    border-radius: 4px;
+}
+
+.side-nav::-webkit-scrollbar-thumb:hover {
+    background: #e68900;
+}
+
+.course-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3em;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.course-bottom-description{
+    display: flex;
+    flex-direction: column;
+}
+
+.course-bottom-input-field{
+    padding: 1.3em 5em;
+    color: white;
+    border-radius: .5em;
+    border: none;
+    margin-right: 1em;
+    background-color: #222;
+}
+
+.chat{
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    color: white;
+    width: 100%;
+    gap: 1em;
+    padding: 1em 0;
+
+    border-radius: .5em;
+    border: none;
+}
+
+.chat-element{
+    background-color: #555;
+    margin: 0 1em;
+    padding: 1em;
+
+    border-radius: .5em;
+    border: none;
+}
+
