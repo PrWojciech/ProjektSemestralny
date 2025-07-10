@@ -14,17 +14,35 @@ function Menu() {
     const hidePopup = () => setIsPopupVisible(false);
     const testApi = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/courses', {
+            const response = await axios.get('http://localhost:8080/courses/auth/1', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
-            }
-            );
-            console.log(response.data)
-        } catch (error) {
-            console.error('Error:', error);
-        }
+            });
 
+            const courses = response.data;
+            console.log(courses)
+            // if (courses) {
+            //     courses.forEach(course => {
+            //         console.log('📚 Kurs:');
+            //         console.log(`  ID: ${course.id}`);
+            //         console.log(`  Tytuł: ${course.title}`);
+            //         console.log(`  Opis: ${course.description}`);
+            //
+            //         console.log('  👥 Uczestnicy:');
+            //         course.userCourses?.forEach(uc => {
+            //             console.log(`    - ${uc.user?.username}`);
+            //         });
+            //
+            //         console.log('---');
+            //     });
+            // } else {
+            //     console.warn('⚠️ Oczekiwano tablicy, otrzymano:', courses);
+            // }
+
+        } catch (error) {
+            console.error('❌ Błąd:', error);
+        }
     };
 
     const handleLogout = () => {

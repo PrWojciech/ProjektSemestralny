@@ -23,6 +23,7 @@ public class UserController {
     // Login existing user
     @PostMapping("/login")
     public String login(@RequestBody UserCredentials credentials) {
-        return myUserService.verify(credentials.getUsername(), credentials.getPassword());
+
+        return myUserService.verify(credentials);
     }
 }

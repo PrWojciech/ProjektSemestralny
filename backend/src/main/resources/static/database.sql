@@ -1,41 +1,68 @@
 -- Drop the table if it exists
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS user_courses;
-DROP TABLE IF EXISTS courses;
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS user_courses;
+-- DROP TABLE IF EXISTS courses;
+-- DROP TABLE IF EXISTS lessons;
+-- DROP TABLE IF EXISTS sections;
+-- DROP TABLE IF EXISTS user_courses;
+-- DROP TABLE IF EXISTS courses;
+-- DROP TABLE IF EXISTS users;
 
--- Create the table to store user data
+
+
 CREATE TABLE users (
                        id SERIAL PRIMARY KEY,
-                       username VARCHAR(255) NOT NULL,
-                       password VARCHAR(255) NOT NULL
+                       username VARCHAR(255) NOT NULL UNIQUE,
+                       password VARCHAR(255) NOT NULL,
+                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-CREATE TABLE user_courses (
-                              id SERIAL PRIMARY KEY,
-                              user_id INT,
-                              course_id INT
-);
+
+-- Tabela kursów
 CREATE TABLE courses (
                          id SERIAL PRIMARY KEY,
                          title VARCHAR(255) NOT NULL,
-                         description TEXT
+                         description TEXT,
+                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE user_courses (
+                              id SERIAL PRIMARY KEY,
+                              user_id INT NOT NULL,
+                              course_id INT NOT NULL
 
 );
 
--- Insert the provided data into the users table
-INSERT INTO users (username, password) VALUES
-                                           ('aaa@aaa', '$2a$12$iJjTrlnJa2ObWiFZ3Ddwqurv9JuwlnSTt2JPbxByVzeZPOB3.KrO2'),
-                                           ('aa@aa', '$2a$12$jyAV2FJKUCyt29cAU0NHkOkPUcLzFNQxNpJ1gYqRXdGX/SaNWsJPC'),
-                                           ('qwe@qwe', '$2a$12$lzud/EtbIe6u7ZBCWDty0uLssIdUUYQYET/E1.lrcBcRcP1liMnQW'),
-                                           ('qqq@QQQ', '$2a$12$sMP29lJy2hW2YRRwEXcnZ.rFW1qA2S47qKj44OJ8pLO9C9D4GMVQK'),
-                                           ('q@q', '$2a$12$VLNH8lL1PW0rKRxbnLEukec7pp4nieMHDRzkNdBKH6hLdTf6/jlXK');
+-- Sekcje kursów
+CREATE TABLE sections (
+                          id SERIAL PRIMARY KEY,
+                          course_id INT NOT NULL,
+                          section_name VARCHAR(255) NOT NULL,
+                          description TEXT
 
--- Insert some example courses
-INSERT INTO courses (title, description) VALUES
-                                             ('Java Basics', 'An introductory course to Java programming, including syntax and basic concepts.'),
-                                             ('Advanced Java', 'A course covering advanced Java features like streams, concurrency, and more.'),
-                                             ('Web Development with Spring Boot', 'Learn how to create web applications using Spring Boot.'),
-                                             ('Frontend Development with React', 'A comprehensive guide to building UIs with React.'),
-                                             ('Database Management Systems', 'An in-depth course on database theory, design, and SQL.');
+);
+
+-- Lekcje w sekcjach
+CREATE TABLE lessons (
+                         id SERIAL PRIMARY KEY,
+                         lesson_index float not null,
+                         section_id INT NOT NULL,
+                         lesson_title VARCHAR(255) NOT NULL,
+                         movie_title VARCHAR(255) NOT NULL,
+                         movie_length TIME,
+                         movie_localization VARCHAR(255) NOT NULL,
+                         description TEXT
+);
+
+-- Insert the provided data into the users table
+INSERT INTO users (username, password, created_at) VALUES
+                                                      ('aaa@aaa', '$2a$12$iJjTrlnJa2ObWiFZ3Ddwqurv9JuwlnSTt2JPbxByVzeZPOB3.KrO2', '2024-01-01 12:00:00'),
+                                                      ('aa@aa', '$2a$12$jyAV2FJKUCyt29cAU0NHkOkPUcLzFNQxNpJ1gYqRXdGX/SaNWsJPC', '2024-01-01 12:00:00'),
+                                                      ('qwe@qwe', '$2a$12$lzud/EtbIe6u7ZBCWDty0uLssIdUUYQYET/E1.lrcBcRcP1liMnQW', '2024-01-01 12:00:00'),
+                                                      ('qqq@QQQ', '$2a$12$sMP29lJy2hW2YRRwEXcnZ.rFW1qA2S47qKj44OJ8pLO9C9D4GMVQK', '2024-01-01 12:00:00'),
+                                                      ('q@q', '$2a$12$VLNH8lL1PW0rKRxbnLEukec7pp4nieMHDRzkNdBKH6hLdTf6/jlXK', '2024-01-01 12:00:00');
+
+
 
 
 INSERT INTO user_courses (user_id, course_id) VALUES
