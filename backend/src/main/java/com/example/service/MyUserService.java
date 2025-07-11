@@ -36,7 +36,6 @@ public class MyUserService implements UserService {
             throw new UserAlreadyExistsException("Username is already taken");
         }
 
-        System.out.println(user);
         user.setPassword(encoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
@@ -47,8 +46,6 @@ public class MyUserService implements UserService {
         );
 
         if (authentication.isAuthenticated()) {
-            System.out.println("logowanie poprawne");
-
 
             Users user = userRepository.findByUsername(credentials.getUsername())
                     .orElseThrow(() -> new RuntimeException("User not found"));

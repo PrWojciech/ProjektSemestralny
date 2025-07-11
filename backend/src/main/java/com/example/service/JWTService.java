@@ -29,7 +29,6 @@ public class JWTService {
 
     public String generateToken(UserCredentials credentials) {
         Map<String, Object> claims = new HashMap<>();
-        System.out.println("Generating token for userId = " + credentials.getUserId());
         claims.put("userId", credentials.getUserId());
         return Jwts.builder()
                 .claims()
@@ -49,7 +48,6 @@ public class JWTService {
     }
 
     public String extractUserName(String token) {
-        // extract the username from jwt token
         return extractClaim(token, Claims::getSubject);
     }
 

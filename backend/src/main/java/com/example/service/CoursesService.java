@@ -29,10 +29,8 @@ public class CoursesService {
     public List<Course> getAllCourses() {
         return courseRepository.findAll();
     }
+
     public boolean userOwnsCourse(Long userId, Long courseId) {
-        System.out.println(userId);
-        System.out.println(courseId);
-        System.out.println(userCourseRepository.existsByUser_IdAndCourse_Id(userId, courseId));
         return userCourseRepository.existsByUser_IdAndCourse_Id(userId, courseId);
     }
 
